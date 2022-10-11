@@ -12,6 +12,9 @@ function play1() {
 document.addEventListener("keydown", function (e) {
     console.log(e);
     
+    let twoButtonKeys = e.key + e.location;//for keys that are more than one on the keyboard.
+    const input = e.key.toLowerCase();//For converting all keys into lowercase
+
     play1();
     if (e.key === "`") {
         document.getElementById("backtick").style.backgroundColor = "green";
@@ -57,12 +60,37 @@ document.addEventListener("keydown", function (e) {
         document.getElementById("questionMark").style.backgroundColor = "green";
     } else if (e.code === "Space") {
         document.getElementById("Space").style.backgroundColor = "green";
-    } else {
-        document.querySelector(`#${e.key}`).style.backgroundColor = "green";
+    } else if (twoButtonKeys === "Shift1") {
+        document.getElementById("Shift1").style.backgroundColor = "green";
+    } else if (twoButtonKeys === "Shift2") {
+        document.getElementById("Shift2").style.backgroundColor = "green";
+    } else if (twoButtonKeys === "Alt1") {
+        document.getElementById("Alt1").style.backgroundColor = "green";
+    }else if (twoButtonKeys === "Alt2") {
+        document.getElementById("Alt2").style.backgroundColor = "green";
+    } else if (twoButtonKeys === "Control1") {
+        document.getElementById("Ctrl1").style.backgroundColor = "green";
+    }else if (twoButtonKeys === "Control2") {
+        document.getElementById("Ctrl2").style.backgroundColor = "green";
+    }else if (e.code === "Meta"){
+        document.getElementById("OS").style.backgroundColor = "green";
+    } else if (e.key === "CapsLock"){
+        if (document.getElementById("CapsLock").style.backgroundColor === "green"){
+            document.getElementById("CapsLock").style.backgroundColor = "white";
+        } else {
+            document.getElementById("CapsLock").style.backgroundColor = "green";
+        }
+    }   
+    else {
+        document.querySelector(`#${input}`).style.backgroundColor = "green";
     }
 })
 
 document.addEventListener("keyup", function (e) {
+
+    let twoButtonKeys = e.key + e.location;
+    const input = e.key.toLowerCase();
+
 
     if (e.key === "`") {
         document.getElementById("backtick").style.backgroundColor = "white";
@@ -108,7 +136,23 @@ document.addEventListener("keyup", function (e) {
         document.getElementById("questionMark").style.backgroundColor = "white";
     } else if (e.code === "Space") {
         document.getElementById("Space").style.backgroundColor = "white";
-    } else {
-        document.querySelector(`#${e.key}`).style.backgroundColor = "white";
+    } else if (twoButtonKeys === "Shift1") {
+        document.getElementById("Shift1").style.backgroundColor = "white";
+    } else if (twoButtonKeys === "Shift2") {
+        document.getElementById("Shift2").style.backgroundColor = "white";
+    }else if (twoButtonKeys === "Alt1") {
+        document.getElementById("Alt1").style.backgroundColor = "white";
+    }else if (twoButtonKeys === "Alt2") {
+        document.getElementById("Alt2").style.backgroundColor = "white";
+    }else if (twoButtonKeys === "Control1") {
+        document.getElementById("Ctrl1").style.backgroundColor = "white";
+    }else if (twoButtonKeys === "Control2") {
+        document.getElementById("Ctrl2").style.backgroundColor = "white";
+    } else if (e.code === "Meta"){
+        document.getElementById("OS").style.backgroundColor = "white";
+    } else if (e.code === "CapsLock"){
+        
+    }else {
+        document.querySelector(`#${input}`).style.backgroundColor = "white";
     }
 })
